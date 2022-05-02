@@ -1,0 +1,22 @@
+logging:
+  level:
+    # 全局日志级别
+    root: info
+    # 局部包的日志级别, com.wang.userclient.client是openFeign接口所在的包名
+    com.wang.userclient.client: debug
+
+# 开启httpclient，默认值为 true
+feign:
+  httpclient:
+    enabled: true
+
+  ## 开启通讯优化gzip
+  ## 开启压缩
+  compression:
+    request:
+      enabled: true
+      ## 开启压缩的阈值，单位字节，默认2048，即是2k，这里为了演示效果设置成1字节
+      min-request-size: 1
+      mime-types: text/xml,application/xml,application/json
+    response:
+      enabled: true
