@@ -1,5 +1,6 @@
 package com.wang.orderserver;
 
+import com.wang.userclient.UserClientApplication;
 import com.wang.userclient.client.UserClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +9,7 @@ import org.springframework.context.annotation.Import;
 
 
 @EnableDiscoveryClient
-@Import(UserClient.class)
+@Import(UserClientApplication.class)
 @SpringBootApplication
 public class OrderServerApplication {
 
