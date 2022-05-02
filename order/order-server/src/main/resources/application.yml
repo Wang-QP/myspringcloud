@@ -11,14 +11,3 @@ spring:
   profiles:
     active: dev,userclient
 
-logging:
-  level:
-    # 全局日志级别
-    root: info
-    # 局部包的日志级别, com.wang.userclient.client是openFeign接口所在的包名
-    com.wang.userclient.client: debug
-
-# 开启httpclient，默认值为 true
-feign:
-  httpclient:
-    enabled: true
