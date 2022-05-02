@@ -11,9 +11,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>user-model</name>
     <description>user-model</description>
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <packaging>pom</packaging>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
