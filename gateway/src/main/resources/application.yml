@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes: #数组形式
+        - id: user-service #路由唯一标识
+          #uri: http://127.0.0.1:8000  #想要转发到的地址
+          uri: lb://user-service  # 从nacos获取名称转发,lb是负载均衡轮训策略
+          predicates: #断言 配置哪个路径才转发,不配置Path则不用添加前缀
+            - Path=/user-service/**
+          filters: #过滤器，请求在传递过程中通过过滤器修改
+            - StripPrefix=1 #去掉第一层前缀
+
+      # 请求 http://localhost:8002/system-service/v1/user/list 会转发到 http://cloud-system-service/v1/user/list
+      discovery:
+        locator:
+          #开启网关拉取nacos的服务 若不配置 routes 规则，则默认通过 服务名 开头去调用
+          # 注意这里配置后在请求开头添加服务名后，路由和断路器会失效
+          enabled: true
+server:
+  port: 8065
