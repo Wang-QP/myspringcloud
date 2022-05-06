@@ -14,7 +14,7 @@ public class OrderController {
     @Resource
     private UserClient userClient;
 
-    @GetMapping("/getuser")
+    @GetMapping("/getUser")
     public User getUser(String id) {
         return userClient.getUser(id);
     }
