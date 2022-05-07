@@ -1,3 +1,6 @@
+server:
+  port: 8065
+
 spring:
   application:
     name: gateway-service
@@ -21,5 +24,10 @@ spring:
           #开启网关拉取nacos的服务 若不配置 routes 规则，则默认通过 服务名 开头去调用
           # 注意这里配置后在请求开头添加服务名后，路由和断路器会失效
           enabled: true
-server:
-  port: 8065
+
+  zipkin:
+    base-url: http://127.0.0.1:9411/ #zipkin地址
+    discovery-client-enabled: false  #不用开启服务发现
+  sleuth:
+    sampler:
+      probability: 1.0 #采样百分比
